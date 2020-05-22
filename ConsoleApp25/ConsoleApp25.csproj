@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MyNoSqlServer.DataReader" Version="1.0.1" />
+    <PackageReference Include="MyNoSqlServer.DataWriter" Version="1.0.1" />
+  </ItemGroup>
+
+</Project>
