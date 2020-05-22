@@ -30,7 +30,7 @@ namespace ConsoleApp25
 
             await Task.Delay(10000);
 
-            var client = new MyNoSqlTcpClient(() => "http://localhost:5125", "TestApp");
+            var client = new MyNoSqlTcpClient(() => "localhost:5125", "TestApp");
             
             var reader = new MyNoSqlServer.DataReader.MyNoSqlReadRepository<Entity>(client, "Entity");
 
