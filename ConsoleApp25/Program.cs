@@ -10,6 +10,7 @@ namespace ConsoleApp25
         static async Task Main(string[] args)
         {
             var writer = new MyNoSqlServer.DataWriter.MyNoSqlServerDataWriter<Entity>(() => "http://localhost:5123", "Entity");
+            
             await writer.InsertOrReplaceAsync(new Entity(1, "1111"));
             await writer.InsertOrReplaceAsync(new Entity(2, "2222"));
 
@@ -29,7 +30,11 @@ namespace ConsoleApp25
 
             await Task.Delay(10000);
 
-            var reader = new MyNoSqlServer.DataReader.MyNoSqlReadRepository<Entity>(new MyNoSqlTcpClient(() => "http://localhost:5125", "TestApp"), "Entity");
+            var client = new MyNoSqlTcpClient(() => "http://localhost:5125", "TestApp");
+            
+            var reader = new MyNoSqlServer.DataReader.MyNoSqlReadRepository<Entity>(client, "Entity");
+
+            client.Start();
 
             var r = reader.Count();
             Console.WriteLine($"count: {r}");
