@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp25", "ConsoleApp25\ConsoleApp25.csproj", "{24781246-452F-46EE-95A6-7ED09362EADC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNoSQLSimpleExample", "ConsoleApp25\MyNoSQLSimpleExample.csproj", "{24781246-452F-46EE-95A6-7ED09362EADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService", "GrpcService\GrpcService.csproj", "{F7FD0089-F27A-454B-B2A7-6BE35A9127B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcClient", "GrpcClient\GrpcClient.csproj", "{D454C80F-22D8-4A7E-8494-9A60DEE93781}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{24781246-452F-46EE-95A6-7ED09362EADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24781246-452F-46EE-95A6-7ED09362EADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24781246-452F-46EE-95A6-7ED09362EADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7FD0089-F27A-454B-B2A7-6BE35A9127B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7FD0089-F27A-454B-B2A7-6BE35A9127B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7FD0089-F27A-454B-B2A7-6BE35A9127B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7FD0089-F27A-454B-B2A7-6BE35A9127B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D454C80F-22D8-4A7E-8494-9A60DEE93781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D454C80F-22D8-4A7E-8494-9A60DEE93781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D454C80F-22D8-4A7E-8494-9A60DEE93781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D454C80F-22D8-4A7E-8494-9A60DEE93781}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

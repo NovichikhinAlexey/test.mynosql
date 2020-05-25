@@ -9,11 +9,9 @@ namespace ConsoleApp25
     {
         static async Task Main(string[] args)
         {
-            var writer = new MyNoSqlServer.DataWriter.MyNoSqlServerDataWriter<Entity>(() => "http://localhost:5123", "Entity");
+            var writer = new MyNoSqlServer.DataWriter.MyNoSqlServerDataWriter<Entity>(() => "http://localhost:5123", "entity");
             
-            await writer.InsertOrReplaceAsync(new Entity(1, "1111"));
-            await writer.InsertOrReplaceAsync(new Entity(2, "2222"));
-
+            
             await writer.CleanAndKeepMaxPartitions(0);
 
             int i = 1;
@@ -30,13 +28,15 @@ namespace ConsoleApp25
 
             await Task.Delay(10000);
 
-            var client = new MyNoSqlTcpClient(() => "localhost:5125", "TestApp");
-            
-            var reader = new MyNoSqlServer.DataReader.MyNoSqlReadRepository<Entity>(client, "Entity");
-
+            var client = new MyNoSqlTcpClient(() => "localhost:5125", "TestApp-client");
             client.Start();
 
-            var r = reader.Count();
+            var reader = new MyNoSqlServer.DataReader.MyNoSqlReadRepository<Entity>(client, "entity");
+
+
+            await Task.Delay(3000);
+
+            var r = reader.Count("Entity");
             Console.WriteLine($"count: {r}");
 
             reader.SubscribeToChanges(list =>
@@ -49,6 +49,12 @@ namespace ConsoleApp25
 
             Console.ReadLine();
 
+            var e = reader.Get("Entity-1", "1");
+            Console.WriteLine($"{e.Id} :: {e.Name}");
+
+            r = reader.Count("Entity");
+            Console.WriteLine($"count: {r}");
+            r = reader.Count();
             Console.WriteLine($"count: {r}");
 
             Console.ReadLine();
@@ -79,7 +85,7 @@ count: 0
         {
             Id = id;
             Name = name;
-            PartitionKey = "Entity";
+            PartitionKey = "Entity-1";
             RowKey = id.ToString();
             TimeStamp = DateTime.UtcNow;
         }
