@@ -11,7 +11,6 @@ namespace ConsoleApp25
         {
             var writer = new MyNoSqlServer.DataWriter.MyNoSqlServerDataWriter<Entity>(() => "http://localhost:5123", "entity");
             
-            
             await writer.CleanAndKeepMaxPartitions(0);
 
             int i = 1;
@@ -36,7 +35,7 @@ namespace ConsoleApp25
 
             await Task.Delay(3000);
 
-            var r = reader.Count("Entity");
+            var r = reader.Count("Entity-1");
             Console.WriteLine($"count: {r}");
 
             reader.SubscribeToChanges(list =>
@@ -52,7 +51,7 @@ namespace ConsoleApp25
             var e = reader.Get("Entity-1", "1");
             Console.WriteLine($"{e.Id} :: {e.Name}");
 
-            r = reader.Count("Entity");
+            r = reader.Count("Entity-1");
             Console.WriteLine($"count: {r}");
             r = reader.Count();
             Console.WriteLine($"count: {r}");

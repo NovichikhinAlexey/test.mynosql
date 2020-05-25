@@ -73,6 +73,8 @@ namespace GrpcService.BL
             record.Item1 = new TaskCompletionSource<int>();
             record.Item2 = stream;
 
+            
+
             _streamList.Add(record);
 
             return record.Item1.Task;

@@ -51,7 +51,7 @@ namespace GrpcService
 
         private void OnApplicationStopping()
         {
-            DataService.Instance.Stop();
+            DataService.Instance?.Stop();
         }
     }
 }
